@@ -8,6 +8,7 @@
 from random import randint
 
 import os
+import time
 
 def create_enviroment(rows,columns):
 	
@@ -73,14 +74,31 @@ def print_enviroment(enviroment):
 	for row in enviroment:
 		print(row)
 
+class Agent:
+
+	# Atributos
+
+	x_pos = 0
+	y_pos = 0
+
 def main():
 	rows = int(input('Filas: '))
 	columns = int(input('Columnas: '))
+	os.system('clear')
 
 	enviroment = litter_the_enviroment(create_enviroment(rows,columns))
-	print_enviroment(enviroment)
+	#print_enviroment(enviroment)
 
-#	os.system('clear')
+	enviroment[0][0] = '*'
+	print_enviroment(enviroment)
+	time.sleep(3)
+	os.system('clear')
+	enviroment[0][0] = '0'
+	enviroment[0][1] = '*'
+	print_enviroment(enviroment)
+	time.sleep(5)
+	os.system('clear')
+
 
 
 if __name__ == '__main__':
